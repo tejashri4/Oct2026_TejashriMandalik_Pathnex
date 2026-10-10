@@ -1,0 +1,11 @@
+#Today's task
+3 Hours - Online session in the morning
+1 hours - AWS
+2 Hours - EC2 Install
+2 Houes -  Docker
+1 Hours - Git
+
+
+#Tomorrow's Task
+Will learn Kubernet
+EC2 Connect
