@@ -1,0 +1,3 @@
+Todays is day 19 .
+Today I done terrafrom pratical .I created EC2 instance using terraform.
+
