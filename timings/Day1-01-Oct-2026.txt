@@ -1,0 +1,14 @@
+# Day 1 – GitHub Task
+**Date:** 1 October 2026
+
+## Today's Timings
+
+- Started the GitHub task.
+- Learned basic Git commands.
+- Checked the Git repository status.
+- Practiced creating and managing files.
+- Learned how to add files using `git add`.
+- Practiced committing changes using `git commit`.
+- Learned how to push code to GitHub.
+
+**Learning Outcome:** Understood the basic Git workflow and practiced uploading task files to GitHub.

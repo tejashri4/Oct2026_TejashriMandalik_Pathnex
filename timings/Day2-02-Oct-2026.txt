@@ -1,0 +1,32 @@
+# Day 2 – Git Commands Practice
+Date: 2 October 2026
+
+## Commands Practiced
+
+1. Check repository status:
+   `git status`
+
+2. List branches:
+   `git branch`
+
+3. Create a new branch:
+   `git branch 2_Oct`
+
+4. Switch to a branch:
+   `git switch 2_Oct`
+
+5. Create a file:
+   `touch Day2-2-Oct-2026.txt`
+
+6. Stage changes:
+   `git add .`
+
+7. Commit changes:
+   `git commit -m "Added Day 2 task files"`
+
+8. Push the branch:
+   `git push -u origin 2_Oct`
+
+## Learning Outcome
+
+Practiced common Git commands for branch management, file creation, staging, committing, and pushing changes to GitHub.
