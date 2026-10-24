@@ -1,0 +1,14 @@
+#Day 21 - Disaster Recovery and Backup Strategies
+
+##Ansible - BAckup and restore files
+
+- name: Backup and Restore files
+  hosts: all
+  become: yes
+  tesk: 
+	- name: create backup of /etc directory
+	  command: tar -czvf /temp/etc-backup.tar.gz /etc
+	- name: Copy backup to remote server
+	  copy:
+		src: /temp/etc-backup.tar.gz
+		dest: /tmp/etc-backup.tar.gz
