@@ -1,6 +1,0 @@
-Today is day 7
-
-
-git task...
-Automating cloud infrastrucuture with terrafrorm and ansible
-
