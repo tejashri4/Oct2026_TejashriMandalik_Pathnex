@@ -1,0 +1,14 @@
+Today is Day 32 - 
+Date- 1-Nov-2026...
+
+I have succesfully completed Month 1 st...
+Its time to started Month 2 Nov...
+
+Today's I have Learned Docker file script....
+
+
+Docker fil ---> Docker Image ------> Docker Container
+
+ANd 
+ 
+Learn ablout K8S.....!!
