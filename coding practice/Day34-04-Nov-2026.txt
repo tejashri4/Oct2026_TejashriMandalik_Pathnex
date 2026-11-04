@@ -1,0 +1,95 @@
+#Day 34 : 
+#Date : 04-Nov-2026...
+
+More Packages, Key Pair , Service
+________________________________________________________________
+
+##Ansible - Install Multiple Package
+---------------------------------------------------
+
+---
+- name: Install packages for Pathnex
+  hosts: all
+  become: yes
+
+  tasks:
+   - name: Install tools
+     yum:
+       name:
+	  - git
+	  - wget
+	state: present
+___________________________________________________________________
+
+##Terraform - EC2 with Key Pair (c6i.8xlarge)
+---------------------------------------------------
+
+provider "aws"
+{
+      region = "us-east-1"
+}
+
+resource "aws_key_pair" "PathnexKey"
+{
+  key_name	= "PathnexKey"
+  public_key    = "ssh-rsa AAAA...."
+}
+
+resource "aws_instance" "PathnexEC2"
+{
+  ami		= "ami-0abcd1234abc1234"
+  instace_type  = "c6i.8xlarge"
+  key_name      = aws_key_pair.PathnexKey.key_name
+
+  tags =
+{
+	Name = "Pathnex-EC2"
+}
+}
+____________________________________________________________________________
+
+##Kubernetes - Create ClusterIP Service
+
+apiVersion: v1
+kind: Service
+metadata:
+   name: pathnex-service
+spec:
+   selector:
+     app: pathnex-app
+   ports:
+	- port: 80
+	targetPort:80
+
+
+___________________________________________________________________________
+
+##Parallel Builds
+--------------
+##Jenkins Pipeline - Parallel Build &Test
+
+-----------------------------------------------------------------
+pipeline{
+agent any 
+stages {
+stage('parallel Task')
+{
+parallel{
+stage('Build')
+{
+steps{
+sh 'mvn clean compile'
+}
+}
+
+stages('Test')
+{
+steps{
+sh 'mvn test'
+}
+}
+}
+}
+}
+}
+___________________________________________________________________________-
