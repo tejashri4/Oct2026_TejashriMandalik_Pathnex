@@ -1,0 +1,111 @@
+#Day 36 - 06-Nov-2026
+________________________________________________
+
+DEGUB DAy
+Fix these broken files:
+________________________________________________
+
+##Ansible (broken)
+
+-  name Install nginx
+ hosts all
+ become yes
+ tasks:
+  - name: Install nginx
+    yum:
+	name nginx
+	state present
+
+________________________________________________
+
+##Terrafrom (broken)
+----------------------------------------
+
+resource "aws_instace" "BrokenEC2"
+{
+   ami		="ami-0xyz"
+   instace_type = t2.micro
+
+tags
+{
+   Name   = "Broken"
+}
+
+}
+_______________________________________________
+
+## Kubernetes (broken)
+
+apiVersion v1
+kind Pod
+metadata:
+   name pathnex
+spec
+   containers:
+	- name app
+	 image nginx
+______________________________________________
+
+#Debugging Pipelines
+
+## Jenkins Pipeline - Debugging
+---------------------------------------
+
+you will learn how to fix broken stages and handle errors.
+
+pipeline {
+agent any
+stages {
+    stage( 'Checkout')
+     {
+       steps {
+	git branch: 'main' , url: 'https://github.com/Pathnex/sam'
+	     }
+       }
+    stages('Build')
+     {
+      steps {
+         sh '''
+         mvn clean compile || { echo "Compile failed" ; exit 1;}
+	   '''
+	}
+}
+
+     stages('Test')
+     {
+     steps
+	{
+          sh '''
+	  mvn test || { echo "Tests failed" ; exit 1;
+	   '''
+	}
+    }
+}
+
+______________________________________________________
+
+#GitLab CI - Debugging 
+-----------------------------------
+
+you will learn how to handle job failure and exit codes
+
+
+
+stages:
+  - build
+  - test
+
+build:
+  stage: build
+  image: maven:3.8.1-jdk-17
+  script:
+    - git clone https://github.com/Pathnex/sample-java-app.git
+    - cd sample-java-app
+    - mvn clean compile || { echo "Compile failed"; exit 1; }
+
+test:
+  stage: test
+  image: maven:3.8.1-jdk-17
+  script:
+    - cd sample-java-app
+    - mvn test || { echo "Tests failed"; exit 1; }
